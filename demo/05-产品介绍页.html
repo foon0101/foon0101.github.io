@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.fullPage.min.js"></script>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<!--添加结构-->
+<div id="_360Page">
+    <div class="section first">
+        <a href="javascript:;" class="logo"></a>
+        <div class="text">
+            <img src="../images/text_1.png" alt="">
+            <img src="../images/text_2.png" alt="">
+            <img src="../images/text_3.png" alt="">
+            <img src="../images/text_4.png" alt="">
+            <img src="../images/text_5.png" alt="">
+            <img src="../images/text_6.png" alt="">
+            <img src="../images/text_7.png" alt="">
+            <img src="../images/text_8.png" alt="">
+        </div>
+        <div class="info"></div>
+    </div>
+    <div class="section second">
+        <div class="shield">
+            <img src="../images/shield_1.png" alt="">
+            <img src="../images/shield_2.png" alt="">
+            <img src="../images/shield_3.png" alt="">
+            <img src="../images/shield_4.png" alt="">
+            <img src="../images/shield_5.png" alt="">
+            <img src="../images/shield_6.png" alt="">
+            <img src="../images/shield_7.png" alt="">
+            <img src="../images/shield_8.png" alt="">
+            <img src="../images/shield_9.png" alt="">
+        </div>
+        <div class="info"></div>
+    </div>
+    <div class="section third">
+        <div class="info"></div>
+        <div class="circle">
+            <div class="rocket"></div>
+        </div>
+    </div>
+    <div class="section fourth">
+        <div class="searchBox">
+            <div class="searchInput"></div>
+            <div class="searchText"></div>
+            <div class="searchResult"></div>
+        </div>
+        <div class="info"></div>
+    </div>
+    <div class="section fifth">
+        <h3>第五屏</h3>
+    </div>
+</div>
+<!--初始化操作-->
+<script>
+    $(function(){
+        $('#_360Page').fullpage({
+            sectionsColor:['#0da5d6', '#2AB561', '#DE8910', '#16BA9D', '#0DA5D6'],
+            /*当滚动到某一屏之后触发*/
+            afterLoad:function(anchorLink,index){
+                /*清除前一屏所添加的current样式标记*/
+                $(".section").removeClass("current");
+                setTimeout(function(){
+                    /*为当前屏添加current样式标记*/
+                    $(".section").eq(index-1).addClass("current");
+                },200);
+            }
+        });
+    });
+</script>
+</body>
+</html>

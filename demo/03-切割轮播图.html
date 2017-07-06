@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 560px;
+            height: 300px;
+            margin: 100px auto;
+            position: relative;
+        }
+        ul {
+            width: 100%;
+            height: 100%;
+            list-style: none;
+            /*transform: rotate3d(1,1,0,-30deg);*/
+            transform-style: preserve-3d;
+        }
+        ul > li {
+            width: 20%;
+            height: 100%;
+            float: left;
+            position: relative;
+            transform-style: preserve-3d;
+            /*添加过渡效果*/
+            transition: transform 1s;
+        }
+        ul > li > span {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            /*background-color: blue;*/
+        }
+        /*获取所有li的第一个span*/
+        ul > li > span:nth-of-type(1){
+            background: url("../images/q1.jpg");
+            /*往前移*/
+            transform: translateZ(150px);
+        }
+        ul > li > span:nth-of-type(2){
+            background: url("../images/q2.jpg");
+            /*往前移*/
+            transform: translateY(-150px) rotateX(90deg);
+        }
+        ul > li > span:nth-of-type(3){
+            transform: translateZ(-150px) rotateX(180deg);
+            background: url("../images/q3.jpg");
+        }
+        ul > li > span:nth-of-type(4){
+            background: url("../images/q4.jpg");
+            /*往前移*/
+            transform: translateY(150px) rotateX(-90deg);
+        }
+        /*每一个li的所有span显示这幅图的不同部分--偏移*/
+        ul > li:nth-of-type(2) > span{
+            background-position: -112px;
+        }
+        ul > li:nth-of-type(3) > span{
+            background-position: -224px;
+        }
+        ul > li:nth-of-type(4) > span{
+            background-position: -336px;
+        }
+        ul > li:nth-of-type(5) > span{
+            background-position: -448px;
+        }
+
+        #pre,#next{
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            background-color: rgba(0,0,0,0.4);
+            color: #fff;
+            text-decoration: none;
+            font-size: 30px;
+            position: absolute;
+            top: 50%;
+            transform: translate(0,-50%);
+        }
+        #pre{
+            left: 0;
+        }
+        #next{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+    </ul>
+    <a href="javascript:;" id="pre">&lt;</a>
+    <a href="javascript:;" id="next">&gt;</a>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script>
+    $(function(){
+        var allLi=$(".box li");
+        /*设置一个标记来判断本次单击操作是否响应完毕*/
+        var flag=true;
+        /*设置全局的索引，计算每一镒单击时li需要旋转的角度*/
+        var currentIndex=0;
+        $("#next").on("click",function(){
+           if(flag==true){
+               flag=false;
+               currentIndex--;
+               /*轮播的本质就是让每一个li进行相应角度的旋转*/
+               allLi.each(function(index,value){
+                   $(this).css({
+                       /*每一个li在旋转相同角度的时候有不一样的延迟时间 */
+                       "transform":"rotateX("+(currentIndex*90)+"deg)",
+                       "transition-delay":(index*0.2)+"s"
+                   });
+               });
+               setTimeout(function(){
+                   flag=true;
+               },1800);
+           }
+        });
+        $("#pre").on("click",function(){
+            if(flag==true){
+                flag=false;
+                currentIndex++;
+                /*轮播的本质就是让每一个li进行相应角度的旋转*/
+                $(allLi).each(function(index,value){
+                    $(this).css({
+                        /*每一个li在旋转相同角度的时候有不一样的延迟时间 */
+                        "transform":"rotateX("+(currentIndex*90)+"deg)",
+                        "transition-delay":(index*0.2)+"s"
+                    });
+                });
+                setTimeout(function(){
+                    flag=true;
+                },2000);
+            }
+        });
+    });
+</script>
+</body>
+</html>

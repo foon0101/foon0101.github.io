@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .layout{
+
+        }
+        a{
+            text-decoration: none;
+        }
+        header{
+            width: 100%;
+            display: flex;
+        }
+        header > a {
+            /*width: 100%;
+            display: block;*/
+            flex: 1;
+        }
+        header > a > img{
+            width: 100%;
+            display: block;
+        }
+        main{
+            padding: 10px;
+        }
+        .item{
+            width: 100%;
+            background-color: #ff957d;
+            height: 100px;
+            border-radius: 10px;
+            margin-top:10px;
+            display: flex;
+        }
+        .item:nth-of-type(2){
+            background-color: #56ab70;
+        }
+        .item:nth-of-type(3){
+            background-color: #78a5ff;
+        }
+        .item:nth-of-type(4){
+            background-color: #f58dff;
+        }
+        .item > .left{
+            flex: 1;
+        }
+        .item > .right{
+            flex: 2;
+            display: flex;
+            /*设置换行*/
+            flex-wrap: wrap;
+        }
+        .item > .right > a {
+            /*当需要子元素强制换行的时候，不能使用flex来自动的计算宽度，而需要手动的步式的设置宽度，以便让子元素的宽度和超出父容器的宽度*/
+            /*flex: 1;*/
+            text-align: center;
+            width: 50%;
+            line-height: 50px;
+            color: #fff;
+            text-decoration: none;
+            border-left: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            box-sizing: border-box;
+        }
+        .item > .right > a:nth-last-of-type(-n+2){
+            border-bottom:none
+        }
+        .extra{
+            margin-top:10px;
+            display: flex;
+        }
+        .extra > a{
+            flex: 1;
+        }
+        .extra > a > img{
+            width: 100%;
+            display: block;
+        }
+        footer{
+
+        }
+        footer nav{
+            height: 30px;
+            line-height: 30px;
+            display: flex;
+            border-top:1px solid #ccc;
+            border-bottom:1px solid #ccc;
+        }
+        footer nav > a{
+            flex: 1;
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+        }
+        footer  p{
+            text-align: center;
+            font-size: 13px;
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="layout">
+    <header>
+        <a href="javascript:;">
+            <img src="../images/banner.jpg" alt="">
+        </a>
+    </header>
+    <main>
+        <section class="item">
+            <div class="left"></div>
+            <div class="right">
+                <a href="javascript:;">海外酒店</a>
+                <a href="javascript:;">团购</a>
+                <a href="javascript:;">特惠酒店</a>
+                <a href="javascript:;">客栈公寓</a>
+            </div>
+        </section>
+        <section class="item">
+            <div class="left"></div>
+            <div class="right">
+                <a href="javascript:;">海外酒店</a>
+                <a href="javascript:;">团购</a>
+                <a href="javascript:;">特惠酒店</a>
+                <a href="javascript:;">客栈公寓</a>
+            </div>
+        </section>
+        <section class="item">
+            <div class="left"></div>
+            <div class="right">
+                <a href="javascript:;">海外酒店</a>
+                <a href="javascript:;">团购</a>
+                <a href="javascript:;">特惠酒店</a>
+                <a href="javascript:;">客栈公寓</a>
+            </div>
+        </section>
+        <section class="item">
+            <div class="left"></div>
+            <div class="right">
+                <a href="javascript:;">海外酒店</a>
+                <a href="javascript:;">团购</a>
+                <a href="javascript:;">特惠酒店</a>
+                <a href="javascript:;">客栈公寓</a>
+            </div>
+        </section>
+        <section class="extra">
+            <a href="javascript:;">
+                <img src="../images/extra_1.png" alt="">
+            </a>
+            <a href="javascript:;">
+                <img src="../images/extra_2.png" alt="">
+            </a>
+        </section>
+    </main>
+    <footer>
+        <nav>
+            <a href="javascript:;">电话预订</a>
+            <a href="javascript:;">下载客户端</a>
+            <a href="javascript:;">我的订单</a>
+        </nav>
+        <p>
+            <a href="javascript:;">网站地图</a>
+            <a href="javascript:;">ENGLISH</a>
+            <a href="javascript:;">电脑版</a>
+        </p>
+        <p>&copy;2015 携程旅行</p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.section{
+    overflow: hidden;
+}
+/*第一屏结构*/
+.first{
+}
+.first .logo{
+    width: 251px;
+    height: 186px;
+    display: block;
+    margin:80px auto;
+    background: url("../images/logo.png");
+}
+.first .text{
+    width: 100%;
+    text-align: center;
+}
+.first .text > img{
+    margin-left:80px;
+    opacity:0.2;
+    transition: margin-left 1s,opacity 1s;
+}
+.first .text > img:nth-of-type(1){
+    margin-left:0;
+}
+.first .info{
+    width: 772px;
+    height: 49px;
+    margin:50px auto;
+    background: url("../images/info_1.png");
+}
+
+/*第一屏样式*/
+.first.current .text > img {
+    margin-left:10px;
+    opacity:1;
+}
+
+/*第二屏结构*/
+/*> div：插件会默认在内容外层包裹一层div*/
+.second > div{
+    /*设置父容器为伸缩盒子，直接子元素会成为伸缩项*/
+    display: flex;
+    /*设置主轴方向的排列方式*/
+    justify-content: space-around;
+    /*设置侧轴方向上的排列方式*/
+    align-items: center;
+}
+.second .shield{
+    width: 440px;
+    font-size: 0;
+}
+.second .shield > img {
+    transition: transform 1s;
+}
+.second .shield > img:nth-of-type(1){
+    transform: translate(100px,100px) rotate(30deg);
+}
+.second .shield > img:nth-of-type(2){
+    transform: translate(-100px,-100px) rotate(-30deg);
+}
+.second .shield > img:nth-of-type(3){
+    transform: translate(200px,200px) rotate(60deg);
+}
+.second .shield > img:nth-of-type(4){
+    transform: translate(-200px,-200px) rotate(-60deg);
+}
+.second .shield > img:nth-of-type(5){
+    transform: translate(150px,150px) rotate(90deg);
+}
+.second .shield > img:nth-of-type(6){
+    transform: translate(50px,150px) rotate(-90deg);
+}
+.second .shield > img:nth-of-type(7){
+    transform: translate(-150px,-150px) rotate(60deg);
+}
+.second .shield > img:nth-of-type(8){
+    transform: translate(10px,-250px) rotate(-90deg);
+}
+.second .shield > img:nth-of-type(9){
+    transform: translate(-250px,10px) rotate(45deg);
+}
+.second .info{
+    width: 635px;
+    height: 309px;
+    background: url("../images/info_2.png");
+}
+/*第二屏动画*/
+.second.current .shield > img{
+    transform:  none;
+}
+
+/*第三屏结构*/
+.third{
+    position: relative;
+}
+.third .info{
+    width: 631px;
+    height: 278px;
+    background: url("../images/info_3.png");
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-100%,-50%);
+}
+.third .circle{
+    width: 453px;
+    height: 449px;
+    background: url("../images/circle.png");
+    position: absolute;
+    right: 50%;
+    top:50%;
+    transform:translate(120%,-50%);
+}
+.third .circle > .rocket{
+    width: 203px;
+    height: 204px;
+    background: url("../images/rocket.png");
+    position: absolute;
+    top: 700px;
+    left:-600px;
+    transition: top 1s,left 1s;
+}
+/*第三屏动画*/
+.third.current .circle > .rocket{
+    top: 125px;
+    left: 125px;
+}
+
+/*第四屏结构*/
+.fourth{
+    position: relative;
+}
+.fourth .searchBox{
+    width: 529px;
+    height: 438px;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-120%,-50%);
+    overflow: hidden;
+}
+.fourth .searchBox .searchInput{
+    width: 529px;
+    height: 66px;
+    background: url("../images/search.png");
+    /*添加默认的偏移*/
+    transform: translateX(-100%);
+    transition: transform 1s;
+}
+.fourth .searchBox .searchText{
+    /*一开始的时候，文本不可见，所以设置宽度为0*/
+    width: 0px;
+    height: 22px;
+    background: url("../images/key.png");
+    position: absolute;
+    top: 22px;
+    left: 16px;
+    transition: width 1s 1s steps(5);
+}
+.fourth .searchBox .searchResult{
+    width: 529px;
+    /*一开始的时候结果不可见，所以高度设置为0*/
+    height: 0px;
+    background: url("../images/result.png");
+    margin-top:-12px;
+    transition: height 1s 2s linear;
+}
+.fourth .info{
+    width: 612px;
+    height: 299px;
+    background: url("../images/info_4.png");
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(100%,-50%);
+}
+
+/*第四屏动画*/
+.fourth.current .searchBox .searchInput{
+    transform: translateX(0px);
+}
+.fourth.current .searchBox .searchText{
+    width: 99px;
+}
+.fourth.current .searchBox .searchResult{
+    height: 372px;
+}
